@@ -18,9 +18,11 @@ const createHomework = async (req, res) => {
   }
 };
 
-const getWorkById = async (req, res) => {
+const getHomeworkById = async (req, res) => {
   try {
-    const homework = await homeworkService.getHomework(req.params.id);
+    const { userId } = req.body;
+    const studentId = userId;
+    const homework = await homeworkService.getHomework(studentId);
     if (!homework) {
       return res.status(404).json({ message: 'Homework not found' });
     }
@@ -30,7 +32,7 @@ const getWorkById = async (req, res) => {
   }
 };
 
-const updateWork = async (req, res) => {
+const updateHomework = async (req, res) => {
   try {
     const homework = await homeworkService.updateHomework(req.params.id, req.body);
     if (!homework) {
@@ -42,7 +44,7 @@ const updateWork = async (req, res) => {
   }
 };
 
-const deleteWork = async (req, res) => {
+const deleteHomework = async (req, res) => {
   try {
     const homework = await homeworkService.deleteHomework(req.params.id);
     if (!homework) {
@@ -56,7 +58,7 @@ const deleteWork = async (req, res) => {
 
 module.exports = {
   createHomework,
-  getWorkById,
-  updateWork,
-  deleteWork,
+  getHomeworkById,
+  updateHomework,
+  deleteHomework,
 };

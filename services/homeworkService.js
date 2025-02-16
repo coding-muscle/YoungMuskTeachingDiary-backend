@@ -16,18 +16,12 @@ const createHomework = async (homeworkData) => {
   }
 };
 
-const getWork = async (req, res) => {
+const getHomework = async (studentId) => {
   try {
-    const homeworks = await homework.find({ classId: req.params.classId });
-    res.status(200).json({
-      message: 'Homeworks fetched successfully',
-      homeworks,
-    });
+    const homeworks = await homeworkModel.find({ studentId });
+    return homeworks;
   } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: 'Internal server error',
-    });
+    throw error;
   }
 };
 
@@ -72,7 +66,7 @@ const deleteWork = async (req, res) => {
 
 module.exports = {
   createHomework,
-  getWork,
+  getHomework,
   updateWork,
   deleteWork,
 };

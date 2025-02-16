@@ -8,7 +8,7 @@ const homeworkSchema = new mongoose.Schema({
   teacher: { type: String, required: true },
   teacherId: { type: String },
   setTime: { type: Date, required: true },
-  workStatus: { type: Number, enum: [0/*未完成*/, 1/*已完成*/], default: 0 },
+  workStatus: { type: String, enum: ['0'/*未完成*/, '1'/*已完成*/], default: '0' },
   createdAt: { type: Date, default: Date.now }, // 创建时间
   isDeleted: { type: Boolean, default: false }, // 是否已删除
 });

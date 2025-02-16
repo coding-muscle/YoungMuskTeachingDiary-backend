@@ -4,8 +4,8 @@ const homeworkController = require('../controllers/homeworkController');
 const router = express.Router();
 
 router.post('/create-homework', homeworkController.createHomework);
-router.post('/get-homework', homeworkController.getWorkById);
-router.put('/update-homework', homeworkController.updateWork);
-router.delete('/delete-homework', homeworkController.deleteWork);
+router.post('/get-homework', homeworkController.getHomeworkById);
+router.put('/update-homework', homeworkController.updateHomework);
+router.delete('/delete-homework', homeworkController.deleteHomework);
 
 module.exports = router;
