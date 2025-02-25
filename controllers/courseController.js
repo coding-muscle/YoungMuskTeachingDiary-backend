@@ -3,7 +3,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const createCourse = async (req, res) => {
     try {
-        const courseId = uuidv4();
         // 从请求体中解构课程数据
         const {
             courseName,
@@ -15,6 +14,7 @@ const createCourse = async (req, res) => {
         } = req.body;
         
         // 调用服务层创建课程
+        const courseId = uuidv4();
         const course = await courseService.createCourse({
             courseId,
             courseName,

@@ -5,6 +5,7 @@ const profileRoutes = require('./routes/profileRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const homeworkRoutes = require('./routes/homeworkRoutes');
 const focusRoutes = require('./routes/focusRoutes');
+const examRoutes = require('./routes/examRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 const connectDB = require('./utils/db');
 
@@ -22,6 +23,7 @@ app.use('/api/profile', profileRoutes);
 app.use('/api/course', courseRoutes);
 app.use('/api/homework', homeworkRoutes);
 app.use('/api/focus', focusRoutes);
+app.use('/api/exam', examRoutes);
 
 // 全局错误处理
 app.use(errorHandler);
